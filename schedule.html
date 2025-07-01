@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos - SGHSS VidaPlus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">SGHSS - VidaPlus</a>
+            <button class="btn btn-outline-light" onclick="logout()">Sair</button>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Meus Agendamentos</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Profissional</th>
+                    <th>Especialidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAgendamentos">
+                <tr>
+                    <td>05/07/2025</td>
+                    <td>14:00</td>
+                    <td>Dr. João Silva</td>
+                    <td>Cardiologia</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="cancelarAgendamento()">Cancelar</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Novo Agendamento</h3>
+        <div class="card p-4">
+            <div class="mb-3">
+                <label for="data" class="form-label">Data:</label>
+                <input type="date" id="data" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="hora" class="form-label">Hora:</label>
+                <input type="time" id="hora" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="profissional" class="form-label">Profissional:</label>
+                <select id="profissional" class="form-select">
+                    <option value="Dr. João Silva - Cardiologia">Dr. João Silva - Cardiologia</option>
+                    <option value="Dra. Maria Costa - Pediatria">Dra. Maria Costa - Pediatria</option>
+                    <option value="Dr. Pedro Souza - Ortopedia">Dr. Pedro Souza - Ortopedia</option>
+                </select>
+            </div>
+            <button class="btn btn-success" onclick="agendar()">Agendar Consulta</button>
+        </div>
+    </div>
+
+    <script>
+        function cancelarAgendamento() {
+            alert("Agendamento cancelado.");
+        }
+
+        function agendar() {
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+            const profissional = document.getElementById('profissional').value;
+
+            if (data && hora) {
+                const tabela = document.getElementById('tabelaAgendamentos');
+                const novaLinha = `<tr>
+            <td>${data}</td>
+            <td>${hora}</td>
+            <td>${profissional.split(' - ')[0]}</td>
+            <td>${profissional.split(' - ')[1]}</td>
+            <td><button class='btn btn-danger btn-sm' onclick='cancelarAgendamento()'>Cancelar</button></td>
+        </tr>`;
+
+                tabela.innerHTML += novaLinha;
+                alert("Consulta agendada com sucesso!");
+            } else {
+                alert("Preencha todos os campos.");
+            }
+        }
+
+        function logout() {
+            alert("Você saiu do sistema.");
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+
+</html>
