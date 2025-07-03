@@ -22,20 +22,20 @@
         <p id="perfilInfo" class="mb-4"></p>
 
         <div id="botoesPaciente" class="mb-3">
-            <button class="btn btn-primary me-2" onclick="irPara('agendamentos.html')">Agendamentos</button>
-            <button class="btn btn-primary me-2" onclick="irPara('telemedicina.html')">Telemedicina</button>
-            <button class="btn btn-primary" onclick="irPara('perfil.html')">Meu Perfil</button>
+            <button class="btn btn-primary me-2" onclick="irPara('schedule.html')">Agendamentos</button>
+            <button class="btn btn-primary me-2" onclick="irPara('telemedicine.html')">Telemedicina</button>
+            <button class="btn btn-primary" onclick="irPara('profile.html')">Meu Perfil</button>
         </div>
 
         <div id="botoesProfissional" class="mb-3" style="display: none;">
-            <button class="btn btn-secondary me-2" onclick="irPara('agendamentos.html')">Agenda de Consultas</button>
-            <button class="btn btn-secondary" onclick="irPara('telemedicina.html')">Telemedicina</button>
+            <button class="btn btn-secondary me-2" onclick="irPara('schedule.html')">Agenda de Consultas</button>
+            <button class="btn btn-secondary" onclick="irPara('telemedicine.html')">Telemedicina</button>
         </div>
 
         <div id="botoesAdmin" class="mb-3" style="display: none;">
-            <button class="btn btn-warning me-2" onclick="irPara('profissionais.html')">Profissionais</button>
-            <button class="btn btn-warning me-2" onclick="irPara('administracao.html')">Administração</button>
-            <button class="btn btn-warning" onclick="irPara('controle-acesso.html')">Segurança</button>
+            <button class="btn btn-warning me-2" onclick="irPara('professionals.html')">Profissionais</button>
+            <button class="btn btn-warning me-2" onclick="irPara('admin.html')">Administração</button>
+            <button class="btn btn-warning" onclick="irPara('access-control.html')">Segurança</button>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
 
         if (!perfil) {
             alert("Você precisa fazer login.");
-            window.location.href = "login.html";
+            window.location.href = "signin.html";
         } else {
             info.textContent = `Seu perfil de acesso: ${perfil}`;
 
@@ -71,10 +71,11 @@
             window.location.href = pagina;
         }
 
+        
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");
-            window.location.href = "login.html";
+            window.location.href = "signin.html";
         }
     </script>
 

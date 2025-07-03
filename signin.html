@@ -37,7 +37,13 @@
     <script>
         function login() {
             const perfil = document.getElementById('perfil').value;
-            alert("Login realizado como " + perfil);
+            // Salva o perfil no localStorage para uso no dashboard
+            let perfilLabel = "";
+            if (perfil === "paciente") perfilLabel = "Paciente";
+            if (perfil === "profissional") perfilLabel = "Profissional";
+            if (perfil === "admin") perfilLabel = "Administrador";
+            localStorage.setItem('perfil', perfilLabel);
+            alert("Login realizado como " + perfilLabel);
             window.location.href = "dashboard.html";
         }
 
