@@ -36,7 +36,7 @@
                     <td>14:00</td>
                     <td>Dr. João Silva</td>
                     <td>Cardiologia</td>
-                    <td><button class="btn btn-danger btn-sm" onclick="cancelarAgendamento()">Cancelar</button></td>
+                    <td><button class="btn btn-danger btn-sm" onclick="cancelSchedule()">Cancelar</button></td>
                 </tr>
             </tbody>
         </table>
@@ -59,38 +59,38 @@
                     <option value="Dr. Pedro Souza - Ortopedia">Dr. Pedro Souza - Ortopedia</option>
                 </select>
             </div>
-            <button class="btn btn-success" onclick="agendar()">Agendar Consulta</button>
+            <button class="btn btn-success" onclick="schedule()">Agendar Consulta</button>
         </div>
     </div>
 
     <script>
-        function cancelarAgendamento() {
+        function cancelSchedule() {
             alert("Agendamento cancelado.");
         }
 
-        function agendar() {
-            const data = document.getElementById('data').value;
-            const hora = document.getElementById('hora').value;
-            const profissional = document.getElementById('profissional').value;
+        function schedule() {
+            const date = document.getElementById('data').value;
+            const hour = document.getElementById('hora').value;
+            const professional = document.getElementById('profissional').value;
 
-            if (data && hora) {
-                const tabela = document.getElementById('tabelaAgendamentos');
-                const novaLinha = `<tr>
-            <td>${data}</td>
-            <td>${hora}</td>
-            <td>${profissional.split(' - ')[0]}</td>
-            <td>${profissional.split(' - ')[1]}</td>
+            if (date && hour) {
+                const table = document.getElementById('tabelaAgendamentos');
+                const newLine = `<tr>
+            <td>${date}</td>
+            <td>${hour}</td>
+            <td>${professional.split(' - ')[0]}</td>
+            <td>${professional.split(' - ')[1]}</td>
             <td><button class='btn btn-danger btn-sm' onclick='cancelarAgendamento()'>Cancelar</button></td>
         </tr>`;
 
-                tabela.innerHTML += novaLinha;
+                table.innerHTML += newLine;
                 alert("Consulta agendada com sucesso!");
             } else {
                 alert("Preencha todos os campos.");
             }
         }
 
-        
+
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");

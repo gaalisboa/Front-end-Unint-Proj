@@ -29,25 +29,25 @@
                 <label for="senha" class="form-label">Senha:</label>
                 <input type="password" id="senha" class="form-control">
             </div>
-            <button class="btn btn-primary" onclick="login()">Entrar</button>
-            <p class="mt-3">Não possui conta? <a href="#" onclick="cadastro()">Cadastre-se</a></p>
+            <button class="btn btn-primary" onclick="signin()">Entrar</button>
+            <p class="mt-3">Não possui conta? <a href="#" onclick="leadToSignup()">Cadastre-se</a></p>
         </div>
     </div>
 
     <script>
-        function login() {
-            const perfil = document.getElementById('perfil').value;
+        function signin() {
+            const profile = document.getElementById('perfil').value;
             // Salva o perfil no localStorage para uso no dashboard
-            let perfilLabel = "";
-            if (perfil === "paciente") perfilLabel = "Paciente";
-            if (perfil === "profissional") perfilLabel = "Profissional";
-            if (perfil === "admin") perfilLabel = "Administrador";
-            localStorage.setItem('perfil', perfilLabel);
-            alert("Login realizado como " + perfilLabel);
+            let profileLabel = "";
+            if (profile === "paciente") profileLabel = "Paciente";
+            if (profile === "profissional") profileLabel = "Profissional";
+            if (profile === "admin") profileLabel = "Administrador";
+            localStorage.setItem('perfil', profileLabel);
+            alert("Login realizado como " + profileLabel);
             window.location.href = "dashboard.html";
         }
 
-        function cadastro() {
+        function leadToSignup() {
             window.location.href = "signup.html";
         }
     </script>

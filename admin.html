@@ -32,7 +32,7 @@
                         <label for="leitosOcupados" class="form-label">Leitos Ocupados:</label>
                         <input type="number" id="leitosOcupados" class="form-control" value="45">
                     </div>
-                    <button class="btn btn-success" onclick="salvarLeitos()">Salvar Dados</button>
+                    <button class="btn btn-success" onclick="savePatients()">Salvar Dados</button>
                 </div>
             </div>
 
@@ -41,9 +41,9 @@
                     <h4>Relatórios Financeiros</h4>
                     <p>Relatórios financeiros disponíveis:</p>
                     <ul>
-                        <li><a href="#" onclick="visualizarRelatorio('Janeiro')">Janeiro 2025</a></li>
-                        <li><a href="#" onclick="visualizarRelatorio('Fevereiro')">Fevereiro 2025</a></li>
-                        <li><a href="#" onclick="visualizarRelatorio('Março')">Março 2025</a></li>
+                        <li><a href="#" onclick="viewReport('Janeiro')">Janeiro 2025</a></li>
+                        <li><a href="#" onclick="viewReport('Fevereiro')">Fevereiro 2025</a></li>
+                        <li><a href="#" onclick="viewReport('Março')">Março 2025</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +51,7 @@
     </div>
 
     <script>
-        function salvarLeitos() {
+        function savePatients() {
             const total = document.getElementById('leitosTotal').value;
             const ocupados = document.getElementById('leitosOcupados').value;
 
@@ -62,11 +62,11 @@
             }
         }
 
-        function visualizarRelatorio(mes) {
+        function viewReport(mes) {
             alert(`Visualizando relatório financeiro de ${mes}. (Simulação)`);
         }
 
-        
+
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");

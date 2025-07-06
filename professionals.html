@@ -34,7 +34,7 @@
                 <label for="contato" class="form-label">Contato:</label>
                 <input type="text" id="contato" class="form-control">
             </div>
-            <button class="btn btn-success" onclick="cadastrar()">Cadastrar</button>
+            <button class="btn btn-success" onclick="signup()">Cadastrar</button>
         </div>
 
         <div class="card p-4">
@@ -53,13 +53,13 @@
                         <td>Dr. João Silva</td>
                         <td>Cardiologia</td>
                         <td>(11) 90000-0000</td>
-                        <td><button class="btn btn-danger btn-sm" onclick="remover(this)">Remover</button></td>
+                        <td><button class="btn btn-danger btn-sm" onclick="remove(this)">Remover</button></td>
                     </tr>
                     <tr>
                         <td>Dra. Maria Costa</td>
                         <td>Pediatria</td>
                         <td>(11) 91111-1111</td>
-                        <td><button class="btn btn-danger btn-sm" onclick="remover(this)">Remover</button></td>
+                        <td><button class="btn btn-danger btn-sm" onclick="remove(this)">Remover</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -67,21 +67,21 @@
     </div>
 
     <script>
-        function cadastrar() {
-            const nome = document.getElementById('nome').value;
-            const especialidade = document.getElementById('especialidade').value;
-            const contato = document.getElementById('contato').value;
+        function signup() {
+            const name = document.getElementById('nome').value;
+            const specialty = document.getElementById('especialidade').value;
+            const contact = document.getElementById('contato').value;
 
-            if (nome && especialidade && contato) {
-                const tabela = document.getElementById('tabelaProfissionais');
+            if (name && specialty && contact) {
+                const table = document.getElementById('tabelaProfissionais');
                 const novaLinha = `<tr>
-            <td>${nome}</td>
-            <td>${especialidade}</td>
-            <td>${contato}</td>
+            <td>${name}</td>
+            <td>${specialty}</td>
+            <td>${contact}</td>
             <td><button class='btn btn-danger btn-sm' onclick='remover(this)'>Remover</button></td>
         </tr>`;
 
-                tabela.innerHTML += novaLinha;
+                table.innerHTML += novaLinha;
                 alert("Profissional cadastrado com sucesso!");
 
                 document.getElementById('nome').value = "";
@@ -92,9 +92,9 @@
             }
         }
 
-        function remover(botao) {
+        function remove(button) {
             if (confirm("Deseja remover este profissional?")) {
-                botao.parentElement.parentElement.remove();
+                button.parentElement.parentElement.remove();
             }
         }
 

@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Pacientes</h5>
                         <p class="card-text">Cadastro, histórico clínico, agendamentos e teleconsulta.</p>
-                        <button class="btn btn-primary" onclick="acessar('pacientes')">Acessar</button>
+                        <button class="btn btn-primary" onclick="accessArea('pacientes')">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Profissionais de Saúde</h5>
                         <p class="card-text">Gestão de agendas, prontuários e prescrições digitais.</p>
-                        <button class="btn btn-primary" onclick="acessar('profissionais')">Acessar</button>
+                        <button class="btn btn-primary" onclick="accessArea('profissionais')">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Administração</h5>
                         <p class="card-text">Controle de leitos, relatórios financeiros e suprimentos.</p>
-                        <button class="btn btn-primary" onclick="acessar('admin')">Acessar</button>
+                        <button class="btn btn-primary" onclick="accessArea('admin')">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Telemedicina</h5>
                         <p class="card-text">Consultas online seguras e prescrições digitais.</p>
-                        <button class="btn btn-primary" onclick="acessar('telemedicina')">Acessar</button>
+                        <button class="btn btn-primary" onclick="accessArea('telemedicina')">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Segurança e Logs</h5>
                         <p class="card-text">Controle de acesso, LGPD e auditoria do sistema.</p>
-                        <button class="btn btn-primary" onclick="acessar('seguranca')">Acessar</button>
+                        <button class="btn btn-primary" onclick="accessArea('seguranca')">Acessar</button>
                     </div>
                 </div>
             </div>
@@ -88,14 +88,14 @@
     </div>
 
     <script>
-        
+
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");
             window.location.href = "signin.html";
         }
 
-        function acessar(area) {
+        function accessArea(area) {
             alert("Você acessou a área de: " + area);
         }
     </script>

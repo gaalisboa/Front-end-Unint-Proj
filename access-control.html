@@ -39,7 +39,7 @@
                     <option value="Administrador">Administrador</option>
                 </select>
             </div>
-            <button class="btn btn-success" onclick="atribuirPerfil()">Atribuir Perfil</button>
+            <button class="btn btn-success" onclick="updateProfile()">Atribuir Perfil</button>
         </div>
 
         <div class="card p-4">
@@ -69,12 +69,12 @@
     </div>
 
     <script>
-        function atribuirPerfil() {
-            const usuario = document.getElementById('usuario').value;
-            const perfil = document.getElementById('perfil').value;
+        function updateProfile() {
+            const user = document.getElementById('usuario').value;
+            const profile = document.getElementById('perfil').value;
 
-            if (usuario) {
-                alert(`Perfil "${perfil}" atribuído ao usuário "${usuario}".`);
+            if (user) {
+                alert(`Perfil "${profile}" atribuído ao usuário "${user}".`);
                 document.getElementById('usuario').value = "";
             } else {
                 alert("Informe o usuário para atribuição de perfil.");
@@ -85,7 +85,7 @@
             window.location.href = pagina;
         }
 
-        
+
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");

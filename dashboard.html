@@ -22,20 +22,20 @@
         <p id="perfilInfo" class="mb-4"></p>
 
         <div id="botoesPaciente" class="mb-3">
-            <button class="btn btn-primary me-2" onclick="irPara('schedule.html')">Agendamentos</button>
-            <button class="btn btn-primary me-2" onclick="irPara('telemedicine.html')">Telemedicina</button>
-            <button class="btn btn-primary" onclick="irPara('profile.html')">Meu Perfil</button>
+            <button class="btn btn-primary me-2" onclick="leadTo('schedule.html')">Agendamentos</button>
+            <button class="btn btn-primary me-2" onclick="leadTo('telemedicine.html')">Telemedicina</button>
+            <button class="btn btn-primary" onclick="leadTo('profile.html')">Meu Perfil</button>
         </div>
 
         <div id="botoesProfissional" class="mb-3" style="display: none;">
-            <button class="btn btn-secondary me-2" onclick="irPara('schedule.html')">Agenda de Consultas</button>
-            <button class="btn btn-secondary" onclick="irPara('telemedicine.html')">Telemedicina</button>
+            <button class="btn btn-secondary me-2" onclick="leadTo('schedule.html')">Agenda de Consultas</button>
+            <button class="btn btn-secondary" onclick="leadTo('telemedicine.html')">Telemedicina</button>
         </div>
 
         <div id="botoesAdmin" class="mb-3" style="display: none;">
-            <button class="btn btn-warning me-2" onclick="irPara('professionals.html')">Profissionais</button>
-            <button class="btn btn-warning me-2" onclick="irPara('admin.html')">Administração</button>
-            <button class="btn btn-warning" onclick="irPara('access-control.html')">Segurança</button>
+            <button class="btn btn-warning me-2" onclick="leadTo('professionals.html')">Profissionais</button>
+            <button class="btn btn-warning me-2" onclick="leadTo('admin.html')">Administração</button>
+            <button class="btn btn-warning" onclick="leadTo('access-control.html')">Segurança</button>
         </div>
     </div>
 
@@ -43,35 +43,35 @@
         // Simulação: no login.html, você deve salvar o perfil assim:
         // localStorage.setItem('perfil', 'Paciente'); ou 'Profissional' ou 'Administrador'
 
-        const perfil = localStorage.getItem('perfil');
+        const profile = localStorage.getItem('perfil');
         const info = document.getElementById('perfilInfo');
-        const botoesPaciente = document.getElementById('botoesPaciente');
-        const botoesProfissional = document.getElementById('botoesProfissional');
-        const botoesAdmin = document.getElementById('botoesAdmin');
+        const patientButtons = document.getElementById('botoesPaciente');
+        const professionalButtons = document.getElementById('botoesProfissional');
+        const adminButtons = document.getElementById('botoesAdmin');
 
-        if (!perfil) {
+        if (!profile) {
             alert("Você precisa fazer login.");
             window.location.href = "signin.html";
         } else {
-            info.textContent = `Seu perfil de acesso: ${perfil}`;
+            info.textContent = `Seu perfil de acesso: ${profile}`;
 
-            if (perfil === "Paciente") {
-                botoesPaciente.style.display = "block";
+            if (profile === "Paciente") {
+                patientButtons.style.display = "block";
             }
-            if (perfil === "Profissional") {
-                botoesProfissional.style.display = "block";
+            if (profile === "Profissional") {
+                professionalButtons.style.display = "block";
             }
-            if (perfil === "Administrador") {
-                botoesPaciente.style.display = "block";
-                botoesAdmin.style.display = "block";
+            if (profile === "Administrador") {
+                patientButtons.style.display = "block";
+                adminButtons.style.display = "block";
             }
         }
 
-        function irPara(pagina) {
+        function leadTo(pagina) {
             window.location.href = pagina;
         }
 
-        
+
         function logout() {
             localStorage.clear();
             alert("Você saiu do sistema.");
